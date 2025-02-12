@@ -21,97 +21,102 @@
 
 `timescale 1ns/100ps
 
-module counter_tb;	//defining inputs/outputs
-	reg clk;		
-	reg d;
-	reg en;
-	reg reset;
-	wire [1:0]out;	//need two bits to define output state
+module counter_tb;      //defining inputs/outputs
+        reg clk;
+        reg d;
+        reg en;
+        reg reset;
+        wire [1:0]out;  //need two bits to define output state
 
-	counter dut (
-			.d(d),		//*******************************
-			.clk(clk),	// pipelining counter to tb
-			.reset(reset),	// maybe I shouldn't use the
-			.en(en),	// same variables next time
-			.out(out)	//
-		    );			//*******************************
+        counter dut (
+                        .d(d),          //*******************************
+                        .clk(clk),      // pipelining counter to tb
+                        .reset(reset),  // maybe I shouldn't use the
+                        .en(en),        // same variables next time
+                        .out(out)       //
+                    );                  //*******************************
 
-	initial begin			//defining a clock with a cycle of 10ns
-		clk = 0;
-		forever #5 clk = ~clk;
-	end
+        initial begin                   //defining a clock with a cycle of 10ns
+                clk = 0;
+                forever #5 clk = ~clk;
+        end
 
 initial begin //start of test cases
         //****************************************
-	//TODO:
-	//
-	//	GIVEN TEST CASES
-	//
-	//	START OF ZERO PATTERN
-	//
-	//	START OF ONE PATTERN
-	//
-	//	LAST RESET VERIFICATION
-	//
-	//****************************************
+        //      GIVEN TEST CASES
+        //****************************************
 
-	reset = 1;
-	en = 0;
-	d = 0;
-	#10;
+        reset = 1;
+        en = 0;
+        d = 0;
+        #20;
 
-	reset = 0;  
-	en = 0;
-	d = 0;
-	#10;
+        reset = 0;
+        en = 1;
+        d = 1;
+        #20;
 
-	en = 1;
-	d = 0;
-	#10; 
+        d = 1;
+        #20;
 
-	d = 1; 
-	#10;
+        reset = 1;
+        en = 1;
+        d = 1;
+        #20;
 
-	d = 0;
-	#10;
+        //****************************************
+        //      START OF ZERO ITERATION
+        //****************************************
 
-	d = 1;
-	#10;
+        reset = 0;
+        d = 0;
+        #20;
+        #20;
 
-	d = 0;
-	#10; 
+        reset = 1;
+        #20;
 
-	d = 1;
-	#10; 
+        //****************************************
+        //      START OF ONE ITERATION
+        //****************************************
 
-	d = 0;
-	#10;
+        reset = 0;
+        d = 1;
+        #20;
+        #20;
+        #20;
+        #20;
+        #20;
+        #20;
 
-	d = 1;
-	#10; 
+        reset = 0;
+        #20;
 
-	d = 0;
-	#10; 
+        //****************************************
+        //      STATE 01 RESET VERIFICATION
+        //****************************************
 
-	en = 0;
-	reset = 1; 
-	#10;
+        reset = 0;
+        d = 1;
+        en = 1;
+        #20;
 
-	reset = 0;
-	#10;
+        reset = 1;
+        #20;
+
 end
 
 initial begin
-	$dumpvars;
-	$dumpfile("counter.vcd");
+        $dumpvars;
+        $dumpfile("counter.vcd");
 end
 
 
-initial begin		//display output in truth table format
-	$display("\tclk\td\ten\treset\tout");
-	$monitor("\t%0b\t%0b\t%0b\t%0b\t%02b", clk, d, en, reset, out);
+initial begin           //display output in truth table format
+        $display("\tclk\td\ten\treset\tout");
+        $monitor("\t%0b\t%0b\t%0b\t%0b\t%02b", clk, d, en, reset, out);
 end
 
-initial #160 $finish; 	//run test bench for 16 clock cycles (160ns)
+initial #320 $finish;   //run test bench for 32 clock cycles (320ns)
 
 endmodule
