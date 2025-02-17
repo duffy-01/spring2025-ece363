@@ -8,7 +8,6 @@ This repository contains materials related to the ECE 363 - Design of Digital Sy
 
 This repository houses various resources related to the ECE 363 course, including (but not limited to):
 
-* **[List the types of materials included. Be specific! Examples:]**
     * Verilog code examples
     * Lab assignments
     * Design project files
