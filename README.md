@@ -1,5 +1,3 @@
-Markdown
-
 # ECE 363 - Design of Digital Systems
 
 This repository contains materials related to the ECE 363 - Design of Digital Systems course.  These materials are provided for educational purposes only.
