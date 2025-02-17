@@ -19,7 +19,7 @@ module rippleADD_tb;
 	reg carryIn;			// Definition of vars &
 	wire [1:0] sum;			// DUT pipelining
 	wire carryOut;			// *note 2 bit a,b, and sum
-					//--------------------------
+							//--------------------------
 	rippleADD dut(  .a(a),
 			.b(b),
 			.carryIn(carryIn),
