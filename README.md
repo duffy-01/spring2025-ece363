@@ -5,13 +5,11 @@ This repository contains materials related to the ECE 363 - Design of Digital Sy
 ## Description
 
 This repository houses various resources related to the ECE 363 course, including (but not limited to):
-
     * Verilog code examples
     * Lab assignments
     * Design project files
     * Simulation scripts
     * Useful scripts or tools
-
 **Important:** These materials are intended to supplement coursework and aid in understanding the concepts of digital systems design. They should not be used for plagiarism or academic dishonesty.  Using these resources to complete assignments or projects that are not your own is a violation of academic integrity.
 
 ## Usage
