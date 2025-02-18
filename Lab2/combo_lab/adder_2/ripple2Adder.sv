@@ -19,7 +19,7 @@
 //
 //******************
 
-`include "../fullADD/fullAdder.v"
+`include "../full_adder/fullAdder.sv"
 
 module rippleADD(		//--------------------------
 	input[1:0] a, b,	// var declaration

@@ -14,11 +14,11 @@
 
 `timescale 1ns/1ps
 
-module fullAdder_tb;			
-	fullAdder_interface dut(.clk(clk));		//******************************
-	fullAdder_harness harness(dut);			// 	boilerplate to connect tb
-											// 	to the device-under-test
-											//******************************
+program fullAdder_testbench(fullAdder_harness.tb, fullAdder);			
+			//******************************
+			// 	boilerplate to connect tb
+			// 	to the device-under-test
+			//******************************
 
 initial begin
 	a = 0;		//initializing a, b, and cin as zero
