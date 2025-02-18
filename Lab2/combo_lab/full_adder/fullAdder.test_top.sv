@@ -12,22 +12,10 @@
 // Date of last modification: 17 February 2025 @ 17:48
 //*************************************************************************
 
-module fullAdder_harness;
-parameter sim_cycle=100;
-reg sys_clk;
+module fullAdder_top;
 
-fullAdder_interface interface(sys_clk);
-fullAdder_tb test(interface);
-fullAdder dut(.a(interface.a), .clk(interface.clk), .b(interface.b), .carryIn(interface.carryIn), .carry(interface.carry), .sum(interface.sum));
-
-// clock
-initial
-begin
-  sys_clk=0;
-  forever
-  begin
-    #(sim_cycle/2) sys_clk=~sys_clk;
-  end
-end
+fullAdder_io top_io();
+fullAdder DUT(.a(top_io.a), .b(top_io.b), .carryIn(top_io.carryIn), .carry(top_io.carry), .sum(top_io.sum));
+fullAdder_testbench(top_io);
 
 endmodule
