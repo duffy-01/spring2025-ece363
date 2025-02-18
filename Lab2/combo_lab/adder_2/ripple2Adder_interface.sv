@@ -12,22 +12,18 @@
 // Date of last modification: 17 February 2025 @ 17:48
 //*************************************************************************
 
-interface fullAdder_interface(input logic clk);
-	logic a, b, carryIn, carry, sum; 
+interface rippleADD_interface(input logic clk); //interface for 2-bit full adder
+	logic [1:0]a, [1:0]b, carryIn, carry, [1:0]sum; //inputs and outputs
 	
 	//set up clock
-	clocking cb@(posedge clk);
-		default input #1 output #0;
-		output reset;
-	endclocking 
+	clocking cb@(posedge clk); //clocking block
+		default input #1 output #0; 
+	endclocking   
 
 	//pick the default 
 	default clocking cb;
 
-	//interfacing control
-	//with respect to the tb
+	//interfacing control with respect to the tb
     modport tb(clocking cb, output a, output b, output carryIn, input sum, input carry);
-	// with respect to the device-under-test
-	modport dut(clocking cb, output a, output b, output carryIn, input sum, input carry);
-
+	
 	endinterface 

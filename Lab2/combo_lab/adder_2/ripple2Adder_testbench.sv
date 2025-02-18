@@ -14,21 +14,11 @@
 
 `timescale 1ns/100ps
 
-module rippleADD_tb;
-	reg [1:0] a, b;			//---------------------------
-	reg carryIn;			// Definition of vars &
-	wire [1:0] sum;			// DUT pipelining
-	wire carryOut;			// *note 2 bit a,b, and sum
-							//--------------------------
-	rippleADD dut(  .a(a),
-			.b(b),
-			.carryIn(carryIn),
-			.carryOut(carryOut),
-			.sum(sum)
-		     );
+program rippleADD_testbench(rippleADD_harness.tb, fullAdder);	
+
 
 initial begin				//init a, b, and cin
-	a = 2'b00;			//as 00, 00, and 0
+	a = 2'b00;				//as 00, 00, and 0
 	b = 2'b00;
 	carryIn = 0;
 end

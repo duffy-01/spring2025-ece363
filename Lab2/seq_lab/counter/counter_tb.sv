@@ -30,11 +30,11 @@ module counter_tb;      //defining inputs/outputs
 
         counter dut (
                         .d(d),          //*******************************
-                        .clk(clk),      // pipelining counter to tb
-                        .reset(reset),  // maybe I shouldn't use the
-                        .en(en),        // same variables next time
-                        .out(out)       //
-                    );                  //*******************************
+                        .clk(clk),      // 
+                        .reset(reset),  // pipelining counter to tb
+                        .en(en),        // 
+                        .out(out)       //*******************************
+                    );                  
 
         initial begin                   //defining a clock with a cycle of 10ns
                 clk = 0;

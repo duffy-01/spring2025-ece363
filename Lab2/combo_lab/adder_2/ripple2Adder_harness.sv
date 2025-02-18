@@ -12,13 +12,13 @@
 // Date of last modification: 17 February 2025 @ 17:26
 //*************************************************************************
 
-module fullAdder_harness;
+module rippleADD_harness;
 parameter sim_cycle=100;
 reg sys_clk;
 
-fullAdder_if top_if(sys_clk);
-fullAdder_tb test(top_io);
-  dual_pattern dut(.a(top_io.a), .clk(top_io.clk), .b(top_io.b), .carryIn(top_io.carryIn), .carry(top_io.carry), .sum(top_io.sum));
+rippleADD_interface interface(sys_clk);
+rippleADD_tb test(interface);
+rippleADD dut(.a(interface.a), .clk(interface.clk), .b(interface.b), .carryIn(interface.carryIn), .carry(interface.carry), .sum(interface.sum));
 
 //clk
 initial
