@@ -21,17 +21,17 @@
 
 `include "../full_adder/fullAdder.sv"
 
-module rippleADD(		//--------------------------
-	input[1:0] a, b,	// var declaration
-	input carryIn,		// note a,b, & sum are [1:0]
-	output[1:0] sum,	//-------------------------
-	output carryOut);
+module rippleADD(               //--------------------------
+        input[1:0] a, b,        // var declaration
+        input carryIn,          // note a,b, & sum are [1:0]
+        output[1:0] sum,        //-------------------------
+        output carry);
 
-wire carryWithin;		// declare an internal "rippling" carry
+wire carryWithin;               // declare an internal "rippling" carry
 
 // stage 1 and stage two of the ripple carry adder
 
-full_ADD stage0(a[0], b[0], carryIn, sum[0], carryWithin); 
-full_ADD stage1(a[1], b[1], carryWithin, sum[1], carryOut);
+fullAdder stage0(a[0], b[0], carryIn, sum[0], carryWithin);
+fullAdder stage1(a[1], b[1], carryWithin, sum[1], carry);
 
 endmodule
