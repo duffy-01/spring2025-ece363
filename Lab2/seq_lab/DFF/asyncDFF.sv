@@ -3,7 +3,7 @@
 // Creation Date: Friday 5 February 2025
 // Class: ECE 363 - Design of Digital Systems
 // Lab this program is associated with: Lab 1
-// Lab due date: Monday 10 February 2025 @ 11:59PM
+// Lab due date: Monday 17 February 2025 @ 11:59PM
 //
 // Purpose of program: Implement DFF with asynchronous reset.
 //

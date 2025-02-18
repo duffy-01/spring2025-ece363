@@ -20,7 +20,7 @@
 //
 //******************
 
-`include "../DFF/asyncDFF.v"
+`include "../DFF/asyncDFF.sv"
 
 module counter(d, clk, reset, en, out);
 	input d, clk, reset, en;
