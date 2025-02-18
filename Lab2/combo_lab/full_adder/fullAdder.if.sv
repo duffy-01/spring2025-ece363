@@ -12,18 +12,9 @@
 // Date of last modification: 17 February 2025 @ 17:48
 //*************************************************************************
 
-interface fullAdder_interface(input logic clk);
-	logic a, b, carryIn, carry, sum; 
-	
-	//set up clock
-	clocking cb@(posedge clk);
-		default input #1 output #0;
-	endclocking 
+interface fullAdder_io;
+        logic a, b, carryIn;
+        logic carry, sum;
 
-	//pick the default 
-	default clocking cb;
-
-	//interfacing control with respect to test bench
-    modport tb(clocking cb, output a, output b, output carryIn, input sum, input carry);
-	
-	endinterface 
+        modport TB (output a, b, carryIn, input carry, sum);
+endinterface
